@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clutch AI — Support</title>
+    <meta name="description"
+        content="Get help with Clutch AI: Texting Wingman. Find answers to frequently asked questions, troubleshoot issues, and contact our support team.">
+    <meta name="keywords" content="Clutch AI, support, help, texting wingman, dating app, AI assistant">
+    <meta name="author" content="Clutch AI">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ───────────────────────────── Reset & Base ───────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+            --text-primary: #f0f0f5;
+            --text-secondary: #9d9db5;
+            --text-muted: #5e5e78;
+            --accent: #7c5cfc;
+            --accent-soft: rgba(124, 92, 252, 0.12);
+            --accent-glow: rgba(124, 92, 252, 0.35);
+            --gradient-1: linear-gradient(135deg, #7c5cfc, #b44cfa);
+            --gradient-2: linear-gradient(135deg, #7c5cfc 0%, #5c9cfc 100%);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #a07cff;
+        }
+
+        /* ───────────────────────────── Ambient Glow ───────────────────────────── */
+        .ambient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .ambient::before,
+        .ambient::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+        }
+
+        .ambient::before {
+            width: 600px;
+            height: 600px;
+            background: #7c5cfc;
+            top: -200px;
+            left: -100px;
+            animation: drift 20s ease-in-out infinite alternate;
+        }
+
+        .ambient::after {
+            width: 500px;
+            height: 500px;
+            background: #b44cfa;
+            bottom: -150px;
+            right: -100px;
+            animation: drift 25s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(80px, 40px) scale(1.15);
+            }
+        }
+
+        /* ───────────────────────────── Layout ───────────────────────────── */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ───────────────────────────── Header / Hero ───────────────────────────── */
+        header {
+            text-align: center;
+            padding: 80px 0 48px;
+        }
+
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 32px var(--accent-glow);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .logo-mark svg {
+            width: 36px;
+            height: 36px;
+            fill: #fff;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ───────────────────────────── Quick Actions ───────────────────────────── */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 56px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .action-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-soft);
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 22px;
+            transition: background 0.3s;
+        }
+
+        .action-card:hover .action-icon {
+            background: rgba(124, 92, 252, 0.22);
+        }
+
+        .action-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .action-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ───────────────────────────── Sections ───────────────────────────── */
+        section {
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        section>h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        /* ───────────────────────────── FAQ Accordion ───────────────────────────── */
+        .faq-list {
+            list-style: none;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .faq-item.open {
+            border-color: rgba(124, 92, 252, 0.25);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: var(--bg-card);
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 20px 56px 20px 24px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.25s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .faq-question::after {
+            content: '';
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid var(--text-muted);
+            border-bottom: 2px solid var(--text-muted);
+            transform: translateY(-60%) rotate(45deg);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: translateY(-30%) rotate(-135deg);
+            border-color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 600px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.75;
+        }
+
+        /* ───────────────────────────── Feature Help Cards ───────────────────────────── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card .feat-icon {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ───────────────────────────── Contact ───────────────────────────── */
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--gradient-1);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--accent-glow);
+            color: #fff;
+        }
+
+        .contact-meta {
+            margin-top: 24px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ───────────────────────────── Footer ───────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-top: 1px solid var(--border);
+            margin-top: 24px;
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        footer .footer-links a {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        footer .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ───────────────────────────── Responsive ───────────────────────────── */
+        @media (max-width: 600px) {
+            header {
+                padding: 56px 0 36px;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ambient background glow -->
+    <div class="ambient" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- ─────────────────── Hero ─────────────────── -->
+        <header>
+            <div class="logo-mark" aria-label="Clutch AI logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z" />
+                </svg>
+            </div>
+            <h1>Clutch AI Support</h1>
+            <p>Your AI-powered texting wingman. We're here to help you get the most out of every conversation.</p>
+        </header>
+
+        <!-- ─────────────────── Quick Actions ─────────────────── -->
+        <div class="quick-actions">
+            <a href="#faq" class="action-card" id="action-faq">
+                <div class="action-icon">❓</div>
+                <h3>FAQs</h3>
+                <p>Quick answers to common questions</p>
+            </a>
+            <a href="#features" class="action-card" id="action-features">
+                <div class="action-icon">🧭</div>
+                <h3>Feature Guide</h3>
+                <p>Learn how each feature works</p>
+            </a>
+            <a href="#contact" class="action-card" id="action-contact">
+                <div class="action-icon">✉️</div>
+                <h3>Contact Us</h3>
+                <p>Reach our support team directly</p>
+            </a>
+        </div>
+
+        <!-- ─────────────────── FAQ ─────────────────── -->
+        <section id="faq">
+            <div class="section-label">Frequently Asked Questions</div>
+            <h2>Got questions? We've got answers.</h2>
+
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-1" aria-expanded="false" aria-controls="faq-ans-1">What is
+                        Clutch AI?</button>
+                    <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+                        <div class="faq-answer-inner">
+                            Clutch AI is your personal AI-powered texting wingman. It helps you craft the perfect
+                            replies in dating conversations, write standout bios, analyze screenshots of chats for
+                            advice, and even find great date spots nearby — all powered by advanced AI.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2">How does
+                        the Wingman chat work?</button>
+                    <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+                        <div class="faq-answer-inner">
+                            The Wingman is a real-time AI chat assistant. Describe the situation you're in — paste a
+                            message you received, share context about your conversation — and the Wingman will suggest
+                            witty, thoughtful, or flirty responses tailored to your style and the situation. You can
+                            also upload screenshots of your conversations for the AI to analyze directly.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3">What is
+                        the Bio Writer?</button>
+                    <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+                        <div class="faq-answer-inner">
+                            The Bio Writer crafts compelling dating profile bios for any platform — Tinder, Hinge,
+                            Bumble, and more. Tell it a bit about yourself and your vibe, and it generates multiple bio
+                            options you can copy and use right away.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4">What is
+                        Date Spotter?</button>
+                    <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+                        <div class="faq-answer-inner">
+                            Date Spotter uses your location to recommend great nearby spots for a date — restaurants,
+                            cafés, bars, activities, and more. It combines map data with AI to give you curated
+                            suggestions so you never have to stress about where to go.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5">How does
+                        the subscription work?</button>
+                    <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+                        <div class="faq-answer-inner">
+                            Clutch AI offers a subscription that unlocks unlimited access to all premium features — the
+                            Wingman chat, Bio Writer, Date Spotter, and screenshot analysis. Subscriptions are managed
+                            through your Apple ID, and you can cancel anytime from your device's Settings →
+                            Subscriptions.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-6" aria-expanded="false" aria-controls="faq-ans-6">How do I
+                        cancel my subscription?</button>
+                    <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
+                        <div class="faq-answer-inner">
+                            To cancel, open <strong>Settings</strong> on your iPhone → tap your name at the top →
+                            <strong>Subscriptions</strong> → select <strong>Clutch AI</strong> → tap <strong>Cancel
+                                Subscription</strong>. You'll retain access until the end of your current billing
+                            period.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-7" aria-expanded="false" aria-controls="faq-ans-7">How do I
+                        restore my purchase on a new device?</button>
+                    <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-btn-7">
+                        <div class="faq-answer-inner">
+                            Simply sign in with the same Apple ID you used for the original purchase. Clutch AI will
+                            automatically detect your active subscription and restore access. If it doesn't restore
+                            automatically, try signing out and back into the app.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-8" aria-expanded="false" aria-controls="faq-ans-8">Is my
+                        data private and secure?</button>
+                    <div class="faq-answer" id="faq-ans-8" role="region" aria-labelledby="faq-btn-8">
+                        <div class="faq-answer-inner">
+                            Absolutely. We take privacy seriously. Your conversations with the AI are not stored
+                            permanently and are not shared with third parties. Screenshots you upload are processed
+                            securely and are not retained. For full details, please review our <a
+                                href="privacy-policy.html">Privacy Policy</a>.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-9" aria-expanded="false" aria-controls="faq-ans-9">The app
+                        isn't working correctly. What should I do?</button>
+                    <div class="faq-answer" id="faq-ans-9" role="region" aria-labelledby="faq-btn-9">
+                        <div class="faq-answer-inner">
+                            Try these steps:<br><br>
+                            1. <strong>Force-quit</strong> the app and reopen it.<br>
+                            2. Make sure you're on the <strong>latest version</strong> — check the App Store for
+                            updates.<br>
+                            3. Ensure you have a <strong>stable internet connection</strong>.<br>
+                            4. <strong>Restart your device.</strong><br><br>
+                            If the issue persists, please <a href="#contact">contact us</a> with details about the
+                            problem and we'll get back to you promptly.
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ─────────────────── Feature Guide ─────────────────── -->
+        <section id="features">
+            <div class="section-label">Feature Guide</div>
+            <h2>Everything Clutch AI can do for you.</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feat-icon">💬</div>
+                    <h3>AI Wingman Chat</h3>
+                    <p>Get real-time reply suggestions for your dating conversations. Describe the vibe or paste their
+                        message and get tailored responses instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feat-icon">📸</div>
+                    <h3>Screenshot Analysis</h3>
+                    <p>Upload a screenshot of your conversation and let the AI read the context, detect tone, and craft
+                        the perfect next message for you.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feat-icon">✍️</div>
+                    <h3>Bio Writer</h3>
+                    <p>Generate creative, attention-grabbing dating profile bios for any platform. Customized to match
+                        your personality and dating goals.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feat-icon">📍</div>
+                    <h3>Date Spotter</h3>
+                    <p>Discover curated nearby date spots — restaurants, bars, cafés, and activities — powered by maps
+                        and AI recommendations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─────────────────── Contact ─────────────────── -->
+        <section id="contact">
+            <div class="contact-box">
+                <h2>Still need help?</h2>
+                <p>Our team is ready to assist. Reach out and we'll get back to you as soon as possible — typically
+                    within 24 hours.</p>
+                <a href="mailto:agenticswarmlabs@gmail.com" class="contact-btn" id="contact-email-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    Email Support
+                </a>
+                <p class="contact-meta">agenticswarmlabs@gmail.com</p>
+            </div>
+        </section>
+
+        <!-- ─────────────────── Footer ─────────────────── -->
+        <footer>
+            <p>&copy; 2025 Clutch AI. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ─────────────────── Accordion Script ─────────────────── -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle current
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
