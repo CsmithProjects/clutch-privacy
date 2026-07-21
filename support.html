@@ -24,20 +24,22 @@
         }
 
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #111118;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --border: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(255, 255, 255, 0.12);
-            --text-primary: #f0f0f5;
-            --text-secondary: #9d9db5;
-            --text-muted: #5e5e78;
-            --accent: #7c5cfc;
-            --accent-soft: rgba(124, 92, 252, 0.12);
-            --accent-glow: rgba(124, 92, 252, 0.35);
-            --gradient-1: linear-gradient(135deg, #7c5cfc, #b44cfa);
-            --gradient-2: linear-gradient(135deg, #7c5cfc 0%, #5c9cfc 100%);
+            /* Rebranded to the Clutch AI design system — see docs/DESIGN.md §13.
+               One accent (cyan), the app canvas, and translucent glass cards. */
+            --bg-primary: #050104;
+            --bg-secondary: #0b0a14;
+            --bg-card: rgba(20, 20, 30, 0.55);
+            --bg-card-hover: rgba(30, 30, 42, 0.65);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.14);
+            --text-primary: #fafafa;
+            --text-secondary: rgba(250, 250, 250, 0.72);
+            --text-muted: rgba(250, 250, 250, 0.45);
+            --accent: #64d2ff;
+            --accent-soft: rgba(100, 210, 255, 0.12);
+            --accent-glow: rgba(100, 210, 255, 0.35);
+            --gradient-1: linear-gradient(135deg, #64d2ff, #3aa4d8);
+            --gradient-2: linear-gradient(135deg, #64d2ff 0%, #3aa4d8 100%);
             --radius: 16px;
             --radius-sm: 10px;
             --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
@@ -63,7 +65,7 @@
         }
 
         a:hover {
-            color: #a07cff;
+            color: #8fe0ff;
         }
 
         /* ───────────────────────────── Ambient Glow ───────────────────────────── */
@@ -87,7 +89,7 @@
         .ambient::before {
             width: 600px;
             height: 600px;
-            background: #7c5cfc;
+            background: #64d2ff;
             top: -200px;
             left: -100px;
             animation: drift 20s ease-in-out infinite alternate;
@@ -96,7 +98,7 @@
         .ambient::after {
             width: 500px;
             height: 500px;
-            background: #b44cfa;
+            background: #3aa4d8;
             bottom: -150px;
             right: -100px;
             animation: drift 25s ease-in-out infinite alternate-reverse;
@@ -186,6 +188,8 @@
 
         .action-card {
             background: var(--bg-card);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 28px 24px;
@@ -215,7 +219,7 @@
         }
 
         .action-card:hover .action-icon {
-            background: rgba(124, 92, 252, 0.22);
+            background: rgba(100, 210, 255, 0.22);
         }
 
         .action-card h3 {
@@ -269,7 +273,7 @@
         }
 
         .faq-item.open {
-            border-color: rgba(124, 92, 252, 0.25);
+            border-color: rgba(100, 210, 255, 0.25);
         }
 
         .faq-question {
@@ -289,6 +293,11 @@
 
         .faq-question:hover {
             background: var(--bg-card-hover);
+        }
+
+        .faq-question:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
         }
 
         .faq-question::after {
@@ -335,6 +344,8 @@
 
         .feature-card {
             background: var(--bg-card);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 24px;
@@ -367,6 +378,8 @@
         /* ───────────────────────────── Contact ───────────────────────────── */
         .contact-box {
             background: var(--bg-card);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 40px 32px;
@@ -446,6 +459,14 @@
             color: var(--accent);
         }
 
+        .footer-tagline {
+            margin-top: 12px;
+            font-family: 'SF Mono', ui-monospace, 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
         /* ───────────────────────────── Responsive ───────────────────────────── */
         @media (max-width: 600px) {
             header {
@@ -481,7 +502,7 @@
                 </svg>
             </div>
             <h1>Clutch AI Support</h1>
-            <p>Your AI-powered texting wingman. We're here to help you get the most out of every conversation.</p>
+            <p>Help for Clutch AI on iOS and Android, including features, purchases, privacy, and troubleshooting.</p>
         </header>
 
         <!-- ─────────────────── Quick Actions ─────────────────── -->
@@ -563,10 +584,10 @@
                         the subscription work?</button>
                     <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
                         <div class="faq-answer-inner">
-                            Clutch AI offers a subscription that unlocks unlimited access to all premium features — the
-                            Wingman chat, Bio Writer, Date Spotter, and screenshot analysis. Subscriptions are managed
-                            through your Apple ID, and you can cancel anytime from your device's Settings →
-                            Subscriptions.
+                            Clutch AI offers plans that unlock the premium features and allowances shown in the App.
+                            Available products, billing periods, localized prices, and any eligible trial or
+                            introductory offer load live from Apple App Store or Google Play before you confirm a
+                            purchase. Subscriptions renew through that store until canceled.
                         </div>
                     </div>
                 </li>
@@ -576,10 +597,12 @@
                         cancel my subscription?</button>
                     <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
                         <div class="faq-answer-inner">
-                            To cancel, open <strong>Settings</strong> on your iPhone → tap your name at the top →
-                            <strong>Subscriptions</strong> → select <strong>Clutch AI</strong> → tap <strong>Cancel
-                                Subscription</strong>. You'll retain access until the end of your current billing
-                            period.
+                            On iPhone or iPad, open <strong>Settings</strong> → tap your name →
+                            <strong>Subscriptions</strong> → <strong>Clutch AI</strong>. On Android, open
+                            <strong>Google Play</strong> → tap your profile → <strong>Payments &amp;
+                                subscriptions</strong> → <strong>Subscriptions</strong> → <strong>Clutch AI</strong>.
+                            Follow the store's cancellation prompts. Deleting the App or your Clutch account does not
+                            cancel billing by itself.
                         </div>
                     </div>
                 </li>
@@ -589,9 +612,10 @@
                         restore my purchase on a new device?</button>
                     <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-btn-7">
                         <div class="faq-answer-inner">
-                            Simply sign in with the same Apple ID you used for the original purchase. Clutch AI will
-                            automatically detect your active subscription and restore access. If it doesn't restore
-                            automatically, try signing out and back into the app.
+                            Sign in to the same Clutch account and the same Apple or Google store account used for the
+                            purchase, then use <strong>Restore purchases</strong> in the App. If the store confirms an
+                            active subscription but access still does not appear, contact support and include your
+                            platform and the approximate purchase date. Do not email a full payment-card number.
                         </div>
                     </div>
                 </li>
@@ -601,10 +625,11 @@
                         data private and secure?</button>
                     <div class="faq-answer" id="faq-ans-8" role="region" aria-labelledby="faq-btn-8">
                         <div class="faq-answer-inner">
-                            Absolutely. We take privacy seriously. Your conversations with the AI are not stored
-                            permanently and are not shared with third parties. Screenshots you upload are processed
-                            securely and are not retained. For full details, please review our <a
-                                href="privacy-policy.html">Privacy Policy</a>.
+                            Saved chat history is encrypted and account-scoped on your device; Clutch does not keep a
+                            cloud chat-history archive in Supabase. Content you submit for an AI request is sent through
+                            our backend to the provider needed to answer it. Temporary screenshot copies made by Clutch
+                            are removed after the request, and the screenshot image is not saved in chat history. See
+                            the <a href="privacy-policy.html">Privacy Policy</a> for provider and retention details.
                         </div>
                     </div>
                 </li>
@@ -616,12 +641,26 @@
                         <div class="faq-answer-inner">
                             Try these steps:<br><br>
                             1. <strong>Force-quit</strong> the app and reopen it.<br>
-                            2. Make sure you're on the <strong>latest version</strong> — check the App Store for
-                            updates.<br>
+                            2. Install the <strong>latest version</strong> from Apple App Store or Google Play.<br>
                             3. Ensure you have a <strong>stable internet connection</strong>.<br>
-                            4. <strong>Restart your device.</strong><br><br>
-                            If the issue persists, please <a href="#contact">contact us</a> with details about the
-                            problem and we'll get back to you promptly.
+                            4. <strong>Restart your device.</strong><br>
+                            5. If one feature needs photos, location, or notifications, check that permission in device
+                            settings.<br><br>
+                            If the issue persists, <a href="#contact">contact us</a> with your device model, iOS or
+                            Android version, App version, the feature involved, and the steps that reproduce it.
+                        </div>
+                    </div>
+                </li>
+
+                <li class="faq-item">
+                    <button class="faq-question" id="faq-btn-10" aria-expanded="false"
+                        aria-controls="faq-ans-10">Which devices and sign-in methods are supported?</button>
+                    <div class="faq-answer" id="faq-ans-10" role="region" aria-labelledby="faq-btn-10">
+                        <div class="faq-answer-inner">
+                            Clutch AI is built for supported iOS and Android devices. Continue with Apple is available
+                            where the Apple sign-in flow is supported; Continue with Google is available on configured
+                            iOS and Android builds. Store purchases and restoration must use the store account that
+                            originally completed the transaction.
                         </div>
                     </div>
                 </li>
@@ -645,7 +684,7 @@
                     <div class="feat-icon">📸</div>
                     <h3>Screenshot Analysis</h3>
                     <p>Upload a screenshot of your conversation and let the AI read the context, detect tone, and craft
-                        the perfect next message for you.</p>
+                        possible next-message options for you to review.</p>
                 </div>
 
                 <div class="feature-card">
@@ -661,6 +700,13 @@
                     <p>Discover curated nearby date spots — restaurants, bars, cafés, and activities — powered by maps
                         and AI recommendations.</p>
                 </div>
+
+                <div class="feature-card">
+                    <div class="feat-icon">🚨</div>
+                    <h3>Panic Button</h3>
+                    <p>Stuck mid-conversation? Get instant AI-generated openers, replies, and recovery lines when you
+                        need a play fast. The daily allowance depends on the plan shown in the App.</p>
+                </div>
             </div>
         </section>
 
@@ -668,8 +714,9 @@
         <section id="contact">
             <div class="contact-box">
                 <h2>Still need help?</h2>
-                <p>Our team is ready to assist. Reach out and we'll get back to you as soon as possible — typically
-                    within 24 hours.</p>
+                <p>Email the details needed to reproduce the issue and we'll review them as soon as practical. Please
+                    redact private conversation content and never send passwords, authentication codes, or full payment
+                    details.</p>
                 <a href="mailto:agenticswarmlabs@gmail.com" class="contact-btn" id="contact-email-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -684,11 +731,13 @@
 
         <!-- ─────────────────── Footer ─────────────────── -->
         <footer>
-            <p>&copy; 2025 Clutch AI. All rights reserved.</p>
+            <p>&copy; 2026 Clutch AI. All rights reserved.</p>
             <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="support.html">Support</a>
+                <a href="terms-and-conditions.html">Terms</a>
             </div>
+            <p class="footer-tagline">clutch — the ai wingman</p>
         </footer>
     </div>
 
