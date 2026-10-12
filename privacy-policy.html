@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="clutch-privacy-policy-version" content="2026-08-02.2">
     <title>Clutch AI — Privacy Policy</title>
     <link rel="stylesheet" href="brand.css">
 </head>
@@ -11,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: July 21, 2026</p>
+        <p class="last-updated">Last updated: August 2, 2026 &middot; Version 2026-08-02.2</p>
 
         <p>Clutch AI ("Clutch," "we," "our," or the "App") is operated by Conor Smith. This policy explains what
             information is handled when you use the App, why it is used, where it is stored, and the choices available
@@ -21,7 +22,10 @@
             <strong>The short version:</strong> Clutch does not sell personal information. Your saved chat history is
             stored in encrypted, account-scoped storage on your device. Content you submit for an AI feature is sent
             through our backend to the provider needed to answer that request only after you affirmatively allow AI
-            processing. You can revoke that permission or delete your account from the App.
+            processing. The consent screen names Supabase, DeepSeek, OpenAI, and Google Places, explains what each
+            receives, and identifies DeepSeek's potential processing and storage in China. Optional product analytics
+            and crash diagnostics are off by default. You can decline AI sharing, change those choices, revoke AI
+            permission, or delete your account from the App.
         </div>
 
         <nav class="toc" aria-label="Table of contents">
@@ -55,14 +59,34 @@
             </tr>
             <tr>
                 <td><strong>AI request content</strong></td>
-                <td>Prompts, conversation context, profile answers, and screenshots or images you choose to submit</td>
+                <td>Prompts, conversation context, profile answers, screenshots or images you choose to submit, and
+                    sensitive relationship or profile details that may appear in that content</td>
                 <td>Generate the response or analysis you requested</td>
             </tr>
             <tr>
+                <td><strong>AI response reports</strong></td>
+                <td>A response identifier, AI task, app area, report category, and&mdash;only if you separately turn
+                    on the off-by-default option&mdash;the displayed AI response content</td>
+                <td>Investigate incorrect, unsafe, biased, privacy-sensitive, or low-quality AI output</td>
+            </tr>
+            <tr>
+                <td><strong>Privacy and age-safety choices</strong></td>
+                <td>Your declared 16&ndash;17 or 18+ age band, named-provider consent purposes and versions, grant or
+                    withdrawal timestamps, and consent expiry</td>
+                <td>Apply age-appropriate safeguards, prevent undisclosed provider processing, and honor withdrawal</td>
+            </tr>
+            <tr>
                 <td><strong>On-device content</strong></td>
-                <td>Saved chat messages and local image references, conversation metadata, contact notes, bio
-                    versions, style preferences, date plans, and debrief history</td>
+                <td>Saved chat messages, conversation metadata, contact notes, bio versions, style preferences, date
+                    plans, and debrief history</td>
                 <td>Remember your work on that signed-in device</td>
+            </tr>
+            <tr>
+                <td><strong>Cloud profile and preference data</strong></td>
+                <td>Your selected archetype, current generated bio, onboarding answers and completion state, pronoun
+                    preference, subscription state, referral history, and feature-usage counters</td>
+                <td>Restore your active profile across sessions, personalize requested features, fulfill access, and
+                    provide account export and support</td>
             </tr>
             <tr>
                 <td><strong>Location</strong></td>
@@ -75,17 +99,30 @@
                 <td>Sell, restore, and verify paid access</td>
             </tr>
             <tr>
-                <td><strong>Usage and diagnostics</strong></td>
-                <td>Feature events, a pseudonymous analytics identifier, app/device details, errors, crashes, and
-                    performance information</td>
-                <td>Measure feature reliability, troubleshoot problems, and improve the App</td>
+                <td><strong>Optional product analytics</strong></td>
+                <td>Pseudonymous feature-use events and basic app/device details; not chat text, screenshots, contact
+                    names, raw account identifiers, or precise location</td>
+                <td>Understand product use only when you turn on analytics in Privacy controls</td>
+            </tr>
+            <tr>
+                <td><strong>Optional crash diagnostics</strong></td>
+                <td>Sanitized error types, stack traces, basic app/device details, and network metadata the diagnostic
+                    service may receive; not chat text, screenshots, Clutch account identifiers, precise location,
+                    breadcrumbs, or request bodies. App Store disclosures conservatively treat diagnostic context as
+                    potentially linkable.</td>
+                <td>Troubleshoot reliability only when you turn on diagnostics in Privacy controls</td>
             </tr>
             <tr>
                 <td><strong>Service and abuse-prevention data</strong></td>
-                <td>Usage counters, referral status, push token and notification state, a device-generated identifier,
-                    and keyed hashes derived from that identifier and your normalized email</td>
-                <td>Apply plan limits, deliver requested notifications, fulfill referrals, and prevent repeated trial
-                    abuse</td>
+                <td>Usage counters, push token and notification state, a device-generated identifier, and short-lived
+                    one-way rate-limit keys</td>
+                <td>Apply plan limits, deliver requested notifications, and detect duplicate trial use among active
+                    accounts</td>
+            </tr>
+            <tr>
+                <td><strong>Support communications</strong></td>
+                <td>Your email address and the information you choose to include when contacting support</td>
+                <td>Respond to the request, investigate an issue, and keep an appropriate support record</td>
             </tr>
         </table>
 
@@ -94,9 +131,13 @@
             <li>Authenticate your account and keep account-scoped data separated.</li>
             <li>Provide Wingman, screenshot analysis, Profile Audit, Bio Writer, Date Spotter, Date Debrief, and Panic
                 features.</li>
-            <li>Verify subscription access, process referrals, enforce usage limits, and prevent repeated trial abuse.</li>
+            <li>Verify subscription access, enforce usage limits, and detect duplicate trial use among active accounts.</li>
             <li>Send notifications you have enabled. Notification permission can be changed in your device settings.</li>
-            <li>Monitor reliability, investigate errors and abuse, and improve product flows.</li>
+            <li>If you separately opt in, process pseudonymous product analytics through PostHog.</li>
+            <li>If you separately opt in, process sanitized crash diagnostics through Sentry.</li>
+            <li>Receive and investigate an AI response report you choose to submit. Reports go to Clutch through
+                Supabase and are not forwarded to an AI provider.</li>
+            <li>Investigate errors or abuse and protect the service.</li>
             <li>Comply with applicable legal obligations and protect users, the App, and our service providers.</li>
         </ul>
 
@@ -105,24 +146,57 @@
 
         <h2 id="section-3">3. AI Requests and Screenshots</h2>
         <p>When you request an AI feature, Clutch sends the content needed for that request from your device to a
-            Supabase Edge Function. The function may route text or image content to DeepSeek, OpenAI, or Anthropic,
-            depending on the feature and service configuration. Date Spotter may also send a location-biased search to
-            Google Places.</p>
+            Supabase Edge Function. The function routes text-generation requests to DeepSeek and image-extraction
+            requests to OpenAI. Date Spotter may also send a location-biased search to Google Places.</p>
         <ul>
             <li>Before the first AI request, the App identifies the categories of content that may be shared, names the
-                third-party AI providers, and asks you to allow that processing. You may decline and continue using
-                non-AI account controls. You can revoke permission from Account &gt; Privacy controls; no new AI request
-                will be sent unless you allow processing again.</li>
+                third-party recipients, where DeepSeek may process and store content, why each recipient receives it,
+                and known retention limits. The App asks you to explicitly allow this sharing. Entering an AI screen
+                by itself sends no prompt, image, or location. You may decline and continue using non-AI account and
+                privacy controls. You can revoke permission from Account &gt; Privacy controls; no new AI request will
+                be sent from the App unless you allow processing again.</li>
+            <li><strong>Supabase:</strong> receives the authenticated account/session identifiers, request content,
+                and basic request metadata needed to authorize and route the request. Supabase does not receive a
+                cloud chat-history archive from Clutch.</li>
+            <li><strong>DeepSeek (People's Republic of China):</strong> receives prompts, extracted screenshot text,
+                profile answers, saved context, relevant venue details, and, if you selected the 16&ndash;17 age band,
+                that declared band in a safety instruction for text generation and safety checks.
+                This content may be processed and stored in China. DeepSeek's public Open Platform terms do not state
+                a fixed API-content retention period or promise that downstream API content is excluded from model
+                improvement. DeepSeek's current public privacy policy also says downstream developer-app end-user
+                processing is not covered by that public policy and says its general services are not intended for
+                sensitive data, children's data, or precise geolocation. Clutch therefore keeps DeepSeek processing
+                disabled unless a retained written agreement and review expressly cover this App's downstream users,
+                dating/profile content, 16&ndash;17 age band, retention and deletion, training, subprocessors,
+                security, and international transfers.</li>
+            <li><strong>OpenAI:</strong> receives selected screenshots or profile images, the extraction instructions
+                needed for the feature, and, if you selected the 16&ndash;17 age band, that declared band in a safety
+                instruction. Clutch sets API response storage to off. Standard OpenAI API
+                abuse-monitoring logs may still contain request content and be kept for up to 30 days, unless law
+                requires longer retention or the project's separately approved data controls provide a shorter period.</li>
+            <li><strong>Google Places:</strong> receives a venue search and approximate or precise coordinates only
+                when you request nearby Date Spotter results. DeepSeek receives the resulting relevant public venue
+                details, not the device location coordinate supplied separately to Google Places.</li>
             <li>Only submit screenshots or messages that you have the right to use. Consider redacting names and other
-                details that are not needed for the request.</li>
+                details that are not needed for the request. Dating content can reveal sensitive information such as
+                sexuality, health, religion, or precise routines; do not include it unless it is necessary and you
+                have permission to share it.</li>
+            <li>Before a selected screenshot is uploaded, the App uses on-device text recognition to flag likely
+                names, handles, contact details, and locations. You can cover any recognized line in a separate upload
+                copy and must visually review the image because automated recognition can miss details. This privacy
+                scan and the mask selection run on the device.</li>
+            <li>Before any selected image can be read for upload, the per-image privacy review requires you to confirm
+                both that you have permission to share the content and that you reviewed or redacted unnecessary
+                personal details. That per-upload attestation is bound to the exact reviewed copy in memory; it is not
+                restored from saved drafts or sent to an AI provider.</li>
             <li>Clutch compresses selected images for transmission, and temporary transmission copies made by the App
-                are removed after processing. In Wingman, a device-local image reference may remain with the saved chat
-                so you can revisit that conversation. In Date Debrief, the screenshot itself is not added to debrief
-                history; only the transcript you review and confirm is saved. The original remains in your photo
-                library unless you delete it there.</li>
-            <li>AI providers receive request content to produce an answer. Their handling and retention of API inputs
-                is governed by our provider arrangements and their applicable policies; do not treat an AI request as a
-                confidential or privileged communication.</li>
+                are removed after processing. Clutch does not add a copy of the selected image or its local file
+                reference to saved Wingman or Date Debrief history. Text extracted from the image may be saved on your
+                device when you keep the conversation or confirm a debrief transcript. The original remains in your
+                photo library unless you delete it there.</li>
+            <li>Do not treat an AI request as a confidential or privileged communication. Permission lasts no more
+                than 12 months, is versioned to this disclosure, and must be requested again after a material change
+                to recipients, data categories, purposes, locations, or retention terms.</li>
         </ul>
 
         <h2 id="section-4">4. Service Providers</h2>
@@ -136,12 +210,22 @@
             <tr>
                 <td><strong>Supabase</strong></td>
                 <td>Authentication, database, server functions, and realtime updates</td>
-                <td>Account/profile data, entitlements, counters, referrals, push token, and AI request traffic</td>
+                <td>Account/profile data, entitlements, counters, push token, AI response reports, and AI request
+                    traffic</td>
             </tr>
             <tr>
-                <td><strong>DeepSeek, OpenAI, and Anthropic</strong></td>
-                <td>AI text generation and image understanding</td>
-                <td>The prompt, relevant context, and images needed for the feature you invoke</td>
+                <td><strong>OpenAI</strong></td>
+                <td>Image extraction</td>
+                <td>The images and extraction instructions needed for the image feature you invoke and, for users who
+                    selected 16&ndash;17, that declared age band in a safety instruction</td>
+            </tr>
+            <tr>
+                <td><strong>DeepSeek</strong></td>
+                <td>AI text generation</td>
+                <td>The prompt and relevant context needed for the feature you invoke and, for users who selected
+                    16&ndash;17, that declared age band in a safety instruction; content may be processed and stored in
+                    the People's Republic of China; disabled unless the written-safeguards gate in Section 3 is
+                    satisfied</td>
             </tr>
             <tr>
                 <td><strong>Google Places</strong></td>
@@ -160,28 +244,42 @@
             </tr>
             <tr>
                 <td><strong>PostHog</strong></td>
-                <td>Product analytics and feature configuration when enabled</td>
+                <td>Optional product analytics only when you turn it on</td>
                 <td>Feature events, plan tier, and a one-way pseudonymous account identifier; not chat text or
                     screenshots</td>
             </tr>
             <tr>
                 <td><strong>Sentry</strong></td>
-                <td>Error, crash, and performance monitoring when configured</td>
-                <td>Diagnostic, app, and device information associated with an error</td>
+                <td>Optional crash diagnostics only when you turn it on</td>
+                <td>Sanitized error types, stack traces, basic app/device information, and network metadata the
+                    service may receive; Clutch does not intentionally attach an account identifier</td>
             </tr>
             <tr>
-                <td><strong>Upstash and Expo</strong></td>
-                <td>Rate limiting and push-notification delivery</td>
-                <td>Pseudonymous account/rate-limit keys and push delivery tokens</td>
+                <td><strong>Expo</strong></td>
+                <td>Push-notification delivery</td>
+                <td>Push delivery tokens and generic notification payloads for notifications you enable</td>
             </tr>
         </table>
+
+        <p>Any third party with whom Clutch shares user data is required to provide the same or equal protection
+            described in this Privacy Policy and required by Apple's App Review Guidelines. We review applicable
+            terms and contractual safeguards and do not enable a processor for production when we cannot substantiate
+            that protection for the data and users in scope. A configured API key alone is not treated as proof. Some platform
+            providers, including Google Maps/Places and the Apple or Google app stores, may process information as
+            independent controllers under their own privacy policies. Their independent records are not controlled by
+            Clutch.</p>
+        <p>Provider terms and retention practices can change. Current details are available from
+            <a href="https://platform.openai.com/docs/models/default-usage-policies-by-endpoint">OpenAI</a>,
+            <a href="https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html">DeepSeek Open Platform terms</a>,
+            <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html">DeepSeek's general privacy policy</a>, and
+            <a href="https://policies.google.com/privacy">Google</a>.</p>
 
         <h2 id="section-5">5. Storage and Security</h2>
         <ul>
             <li>Saved conversations and related private state are account-scoped and encrypted on your device. The
                 encryption key is stored using the device's secure credential storage.</li>
             <li>Authentication session material is kept in secure device storage. Operational account, subscription,
-                usage, referral, and notification records are stored with Supabase.</li>
+                usage, notification, consent, and AI response-report records are stored with Supabase.</li>
             <li>Network requests use encrypted HTTPS/TLS connections. Database access controls and server-side
                 authorization are used to limit access to account data.</li>
             <li>No system can guarantee absolute security. Keep your device and store accounts secure, and contact us
@@ -191,20 +289,46 @@
         <h2 id="section-6">6. Retention and Deletion</h2>
         <ul>
             <li><strong>On-device private content:</strong> Saved conversations, bio versions, plans, and debriefs remain
-                on the signed-in device until you delete the relevant record, sign out, delete your account, or remove
-                the App or its data. Clutch limits each saved conversation to its most recent 1,000 messages.</li>
-            <li><strong>AI request content:</strong> Is processed for the request rather than added to a cloud chat
-                archive by Clutch. Service providers may retain request or security records under their own applicable
-                terms and retention practices.</li>
-            <li><strong>Account records:</strong> Are generally kept while your account is active. In-App account
-                deletion removes your Supabase authentication account and linked profile records, then removes that
-                account's private local App data from the device.</li>
-            <li><strong>Trial-abuse ledger:</strong> Keyed hashes of the normalized email and device signal, together
-                with the trial window, may remain after account deletion. They are scheduled for deletion after they
-                are more than 18 months past the recorded trial window.</li>
-            <li><strong>Purchases, analytics, diagnostics, and security records:</strong> May be retained by Clutch,
-                app stores, or service providers for their operational, fraud-prevention, accounting, or legal needs,
-                subject to their policies and applicable law.</li>
+                encrypted and account-scoped on your device until you delete the relevant record, choose “Sign out and
+                remove data from this device,” delete your account, or remove the App or its data. Ordinary sign-out
+                removes authentication but keeps this encrypted device copy for your next sign-in. Clutch limits each
+                saved conversation to its most recent 1,000 messages.</li>
+            <li><strong>AI request content:</strong> Clutch processes it for the request and does not add it to a cloud
+                chat archive. Provider-side request and security records follow the provider-specific periods,
+                contractual controls, and exceptions described in Section 3. Deleting your Clutch account does not by
+                itself prove that a provider's security log was erased. Contact us for an applicable provider-side
+                privacy request; we will use the available contractual or provider process and explain any legal or
+                technical limitation.</li>
+            <li><strong>AI response reports:</strong> The response identifier, task, app area, category, and optional
+                displayed response content are stored in Supabase, linked to your account, while the account exists or
+                until an applicable earlier deletion request is completed. Response content is excluded unless you
+                separately turn on the off-by-default inclusion switch. Reports are not forwarded to DeepSeek,
+                OpenAI, or another AI model provider and cascade when the account is deleted.</li>
+            <li><strong>Active account records:</strong> Supabase account, cloud profile and preferences, entitlement,
+                usage, consent, age band, referral, device-linking, notification, and moderation-report records are kept while the
+                account exists or as otherwise explained here. In-App deletion deletes the authentication account and
+                rows linked by account-deletion rules. A referral record may remain after a referrer deletes an
+                account with its account link removed, while store/webhook security records and deleted data may
+                remain temporarily in configured backups or security logs.</li>
+            <li><strong>Rate-limit records:</strong> Account-linked PostgreSQL request buckets expire at the end of a
+                window of no more than one hour and are deleted opportunistically on a later request. Daily Panic and
+                Draft Review allowance rows older than seven days are also deleted opportunistically for that account.
+                All remaining linked allowance rows cascade when the account is deleted. The App does not keep a
+                separate email/device hash ledger after account deletion.</li>
+            <li><strong>Optional analytics:</strong> New PostHog collection stops as soon as you turn analytics off.
+                Existing records remain under the project's configured retention unless you request deletion. Account
+                deletion queues deletion of the associated pseudonymous PostHog person and events.</li>
+            <li><strong>Optional diagnostics:</strong> New Sentry collection stops as soon as you turn diagnostics off.
+                Diagnostic events contain no Clutch account identifier and age out under the configured Sentry
+                retention window; some event information may remain temporarily within shared error issues.</li>
+            <li><strong>Account deletion:</strong> Before deleting the Supabase account, Clutch requests deletion of the
+                associated RevenueCat customer and PostHog records and revokes Sign in with Apple authorization when
+                Apple provides the required code. If Apple cannot provide a code, the App gives manual revocation
+                instructions and asks you to confirm before continuing. The App then removes its private local data,
+                notification state, telemetry choices, and device identifier.</li>
+            <li><strong>Store and platform records:</strong> Deleting Clutch does not cancel a subscription or erase
+                purchase, payment, or fraud-prevention records independently controlled by Apple or Google. Those
+                records follow the store's policies and legal obligations.</li>
         </ul>
 
         <h2 id="section-7">7. Your Choices and Rights</h2>
@@ -212,12 +336,20 @@
             <li>You can review or revoke third-party AI processing permission from Account &gt; Privacy controls. AI
                 features remain unavailable while permission is off, and non-AI account and privacy controls remain
                 available.</li>
+            <li>You can report an AI response without including the response text. The separate response-content
+                switch is off by default. Submitted reports are included in the in-App account export; contact us to
+                request earlier deletion of a report.</li>
+            <li>Optional product analytics and optional crash diagnostics are separate, off by default, and can each
+                be turned on or off at any time from Account &gt; Privacy controls. Turning either off stops new
+                collection immediately. Signing out also resets both choices on that device.</li>
             <li>Location, photo-library, and notification access can be declined or changed in device settings. Some
                 related features will not work without the relevant access.</li>
-            <li>You can delete individual conversations, saved bio versions, and date debriefs in the App. Cancelling
-                an active date plan removes that plan and its reminders.</li>
-            <li>You can delete your Clutch account from the account controls in the App. Cancel an active subscription
-                separately through Apple App Store or Google Play so it does not renew.</li>
+            <li>You can delete individual conversations, saved bio versions, date plans, and date debriefs in the App.
+                Cancelling an active date plan marks it cancelled and removes its reminders without falsely deleting
+                the plan history.</li>
+            <li>You can delete your Clutch account from the account controls in the App. Apple-linked accounts may ask
+                you to confirm with Apple so the authorization can be revoked. Cancel an active subscription separately
+                through Apple App Store or Google Play so it does not renew.</li>
             <li>Depending on where you live, you may have rights to request access, correction, deletion, or a copy of
                 personal information. Contact us to make a request. We may need to verify your identity, and some
                 records may be retained where permitted or required by law.</li>
@@ -226,7 +358,9 @@
         <h2 id="section-8">8. Age Requirement</h2>
         <p>Clutch is intended for users <strong>16 years of age or older</strong>. We do not knowingly collect personal
             information from anyone under 16. Contact us if you believe an underage user has provided information to
-            Clutch.</p>
+            Clutch. The App stores only a declared 16&ndash;17 or 18+ band, not a birth date. Users in the 16&ndash;17
+            band receive additional non-explicit content and venue safeguards. DeepSeek processing remains disabled
+            unless the written agreement described in Section 3 expressly covers personal data for this age band.</p>
 
         <h2 id="section-9">9. Changes to This Policy</h2>
         <p>We may update this policy as the App or applicable requirements change. We will update the date above and,
@@ -248,7 +382,7 @@
             <a href="terms-and-conditions.html">Terms</a>
         </nav>
         <p>© 2026 Clutch AI — <a href="mailto:agenticswarmlabs@gmail.com">agenticswarmlabs@gmail.com</a></p>
-        <p class="brand-tagline">clutch — the ai wingman</p>
+        <p class="brand-tagline">Clutch — the AI wingman</p>
     </footer>
 </body>
 
